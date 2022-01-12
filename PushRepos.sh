@@ -18,7 +18,12 @@ for d in */ ; do
 
     if [ -d ".git" ] ;
       then   
-      git pull -v
+           git add .
+           git commit -a -m "Commit by script."
+           
+           if [[ $? -eq 0 ]]; then
+             git push
+           fi       
     fi;
 
     cd ..
